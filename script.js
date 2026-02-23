@@ -66,7 +66,7 @@ evetBtn.addEventListener("click", () => {
     // Müzik burada başlasın
     sarki.play().catch(e => console.log("Müzik çalınamadı:", e));
 
-    soru.innerHTML = "BEN DE SENİ SEVİYORUM FEYZA ❤️";
+    soru.innerHTML = "BİLİYODUM BENDE SENİ SEVİYORUM FEYZAM ❤️";
     evetBtn.style.display = "none";
     hayirBtn.style.display = "none";
     
@@ -85,4 +85,5 @@ evetBtn.addEventListener("click", () => {
             heart.style.transform = "translate(-50%, -50%) scale(10)";
         }, 50);
     }, 100);
+
 });
