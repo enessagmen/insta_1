@@ -1,33 +1,49 @@
-/* Mevcut CSS'inin üzerine ekle veya değiştir */
 body {
     display: flex; justify-content: center; align-items: center;
-    height: 100vh; margin: 0; background: #fce4ec;
-    font-family: sans-serif; overflow: hidden; position: relative;
-}
-
-/* Yukarıdan aşağı kayan fotoğraflar */
-.floating-photo {
-    position: absolute;
-    width: 80px; /* Fotoğraf boyutu */
-    height: 80px;
-    object-fit: cover;
-    border-radius: 10px;
-    z-index: 1;
-    opacity: 0.6;
-    animation: slideDown 5s linear forwards;
-}
-
-@keyframes slideDown {
-    0% { transform: translateY(-120px) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(360deg); }
+    height: 100vh; margin: 0; background-color: #fce4ec;
+    font-family: 'Segoe UI', sans-serif; overflow: hidden; position: relative;
+    background-size: cover; background-position: center;
 }
 
 .container {
-    z-index: 10; background: white; padding: 40px;
-    border-radius: 20px; text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.95); padding: 40px; 
+    border-radius: 30px; text-align: center; z-index: 100;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
 }
 
-#hayirBtn {
-    position: relative; transition: 0.1s; /* Kaçma hızı */
+.buttons { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px; }
+
+button {
+    padding: 12px 35px; border: none; border-radius: 15px;
+    font-size: 18px; font-weight: bold; cursor: pointer; color: white;
+}
+
+#evetBtn { background-color: #2ecc71; z-index: 110; transition: transform 0.3s ease; }
+#hayirBtn { background-color: #e74c3c; z-index: 110; }
+
+.falling-photo {
+    position: absolute; width: 80px; height: 80px;
+    object-fit: cover; border-radius: 50%; border: 3px solid white;
+    z-index: 1; animation: fall 6s linear forwards;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+.floating-text {
+    position: absolute; font-weight: bold; color: #ff4757;
+    pointer-events: none; z-index: 2; opacity: 0.6; font-size: 20px;
+}
+
+#finalHeart {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 150px; height: 150px;
+    border: 10px solid #ff4757; background: transparent;
+    clip-path: path('M75,45 C52.5,15 15,15 15,52.5 C15,90 75,135 75,135 C75,135 135,90 135,52.5 C135,15 97.5,15 75,45 Z');
+    z-index: 200; transition: transform 2.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: none;
 }
